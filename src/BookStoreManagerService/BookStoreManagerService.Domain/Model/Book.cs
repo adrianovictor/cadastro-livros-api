@@ -1,4 +1,7 @@
+using System.Runtime.InteropServices;
 using BookStoreManagerService.Domain.Common;
+using BookStoreManagerService.Domain.Enum;
+using BookStoreManagerService.Domain.Exceptions;
 
 namespace BookStoreManagerService.Domain.Model;
 
@@ -11,6 +14,7 @@ public class Book : EntityBase<Book>
     public string Publisher { get; protected set; }
     public int Edition { get; protected set; }
     public string YearOfPublication { get; protected set; }
+    public Status Status { get; protected set; } = Status.Active;
     public virtual IReadOnlyCollection<Author> Authors => _authors;
     public virtual IReadOnlyCollection<Subject> Subjects => _subjects;
 
@@ -71,6 +75,16 @@ public class Book : EntityBase<Book>
             _subjects.Add(subject);
 
         }
+    }
+
+    public void ChangeStatus(Status status)
+    {
+        if (Status == Status.Deleted)
+        {
+            throw new CannotChangeStatusOfADeletedEntityException();
+        }
+
+        Status = status;
     }
  
 }

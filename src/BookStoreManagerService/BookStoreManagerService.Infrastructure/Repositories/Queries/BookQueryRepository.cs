@@ -1,4 +1,5 @@
 using BookStoreManagerService.Domain.Dto;
+using BookStoreManagerService.Domain.Enum;
 using BookStoreManagerService.Domain.Model;
 using BookStoreManagerService.Domain.Repository.Queries;
 using BookStoreManagerService.Infrastructure.Repositories.Common;
@@ -10,28 +11,7 @@ public class BookQueryRepository(string connectionString) : QueryRepository<Book
 {
     public async Task<IReadOnlyList<BookDto>> GetAllAsync()
     {
-        var sql = @"SELECT l.Codl Id,
-                           l.Titulo Title,
-                           l.Editora Publisher,
-                           l.Edicao Edition,
-                           l.AnoPublicacao YearOfPublication,
-                           l.DataCriacao CreatedAt,
-                           a.CodAu AuthorId,
-                           a.Nome Author,
-                           ass.CodAs SubjectId,
-                           ass.Descricao Subject
-                    FROM [dbo].[Livro] l
-                        LEFT JOIN [dbo].Livro_Autor la ON l.Codl = la.Livro_Codl
-                        LEFT JOIN [dbo].[Autor] a ON la.Autor_CodAu = a.CodAu
-                        LEFT JOIN [dbo].[Livro_Assunto] las ON l.Codl = las.Livro_Codl
-                        LEFT JOIN [dbo].[Assunto] ass ON las.Assunto_CodAs = ass.CodAs";
-
-        return (await CreateConnection().QueryAsync<BookDto>(sql)).ToList();
-    }
-
-    public async Task<BookDto?> GetByIdAsync(int id)
-    {
-        var sql = @"SELECT l.Codl Id,
+        var sql = $@"SELECT l.Codl Id,
                            l.Titulo Title,
                            l.Editora Publisher,
                            l.Edicao Edition,
@@ -46,7 +26,30 @@ public class BookQueryRepository(string connectionString) : QueryRepository<Book
                         LEFT JOIN [dbo].[Autor] a ON la.Autor_CodAu = a.CodAu
                         LEFT JOIN [dbo].[Livro_Assunto] las ON l.Codl = las.Livro_Codl
                         LEFT JOIN [dbo].[Assunto] ass ON las.Assunto_CodAs = ass.CodAs
-                    WHERE l.Codl = @id";
+                    WHERE l.Situacao != {Status.Deleted:d}";
+
+        return (await CreateConnection().QueryAsync<BookDto>(sql)).ToList();
+    }
+
+    public async Task<BookDto?> GetByIdAsync(int id)
+    {
+        var sql = $@"SELECT l.Codl Id,
+                           l.Titulo Title,
+                           l.Editora Publisher,
+                           l.Edicao Edition,
+                           l.AnoPublicacao YearOfPublication,
+                           l.DataCriacao CreatedAt,
+                           a.CodAu AuthorId,
+                           a.Nome Author,
+                           ass.CodAs SubjectId,
+                           ass.Descricao Subject
+                    FROM [dbo].[Livro] l
+                        LEFT JOIN [dbo].Livro_Autor la ON l.Codl = la.Livro_Codl
+                        LEFT JOIN [dbo].[Autor] a ON la.Autor_CodAu = a.CodAu
+                        LEFT JOIN [dbo].[Livro_Assunto] las ON l.Codl = las.Livro_Codl
+                        LEFT JOIN [dbo].[Assunto] ass ON las.Assunto_CodAs = ass.CodAs
+                    WHERE l.Situacao != {Status.Deleted:d} 
+                      AND l.Codl = @id";
 
         return await CreateConnection().QueryFirstOrDefaultAsync<BookDto>(sql, new { id });
     }

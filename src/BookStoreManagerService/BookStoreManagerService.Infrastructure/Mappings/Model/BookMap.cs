@@ -1,3 +1,4 @@
+using BookStoreManagerService.Domain.Enum;
 using BookStoreManagerService.Domain.Model;
 using BookStoreManagerService.Infrastructure.Mappings.Common;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ public class BookMap : EntityMap<Book>
         builder.Property(_ => _.Edition).IsUnicode(false).HasColumnName("Edicao");
         builder.Property(_ => _.Title).HasMaxLength(40).IsUnicode(false).HasColumnName("Titulo");
         builder.Property(_ => _.YearOfPublication).HasColumnName("AnoPublicacao");
+        builder.Property(_ => _.Status).IsRequired().HasColumnName("Situacao").HasDefaultValue(Status.Active);
 
         builder.HasMany(_ => _.Authors).WithMany(_ => _.Books)
             .UsingEntity(

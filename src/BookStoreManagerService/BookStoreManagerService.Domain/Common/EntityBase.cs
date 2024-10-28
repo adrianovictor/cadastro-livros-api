@@ -1,5 +1,3 @@
-using System;
-
 namespace BookStoreManagerService.Domain.Common;
 
 public abstract class EntityBase<TEntity> : IEntityBase<TEntity>
