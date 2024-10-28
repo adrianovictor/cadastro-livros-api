@@ -29,11 +29,12 @@ namespace BookStoreManagerService.Api.Controllers
         {
             return (await _mediator.Send(
                 new CreateBookCommand(
-                    request.Titulo, 
-                    request.Editora, 
-                    request.Edicao, 
-                    request.AnoPublicacao, 
-                    request.Autor,
+                    request.Title, 
+                    request.Publisher, 
+                    request.Edition, 
+                    request.YearOfPublication, 
+                    request.Author,
+                    request.Subject,
                     request.Price,
                     request.Quantity
                  ))).ToResult();
