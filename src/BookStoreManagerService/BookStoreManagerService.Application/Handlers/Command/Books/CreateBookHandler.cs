@@ -31,7 +31,13 @@ public class CreateBookHandler : IRequestHandler<CreateBookCommand, OperationRes
                     author = Author.Create(request.Author);
                 }
 
-                book = Book.Create(request.Title, request.Publisher, request.Edition, request.YearOfPublication);
+                book = Book.Create(
+                    request.Title, 
+                    request.Publisher, 
+                    request.Edition, 
+                    request.YearOfPublication, 
+                    request.Price, 
+                    request.Quantity);
                 book.AddAuthor(author!);
 
                 book = await _bookRepository.AddAsync(book);
@@ -47,7 +53,7 @@ public class CreateBookHandler : IRequestHandler<CreateBookCommand, OperationRes
                 var error = new OperationErrorMessage
                 {
                     ErrorCode = "400",
-                    Message = "Livro já registrado."
+                    Message = "Livro jï¿½ registrado."
                 };
 
                 return new OperationResult

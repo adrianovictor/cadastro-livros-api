@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices;
 using BookStoreManagerService.Domain.Common;
 using BookStoreManagerService.Domain.Enum;
 using BookStoreManagerService.Domain.Exceptions;
@@ -14,21 +13,26 @@ public class Book : EntityBase<Book>
     public string Publisher { get; protected set; }
     public int Edition { get; protected set; }
     public string YearOfPublication { get; protected set; }
-    public Status Status { get; protected set; } = Status.Active;
+    public Status Status { get; protected set; }
+    public decimal Price { get; protected set; }
+    public int Quantity { get; protected set; }
     public virtual IReadOnlyCollection<Author> Authors => _authors;
     public virtual IReadOnlyCollection<Subject> Subjects => _subjects;
 
-    public Book(string title, string publisher, int edition, string yearOfPublication)
+    public Book(string title, string publisher, int edition, string yearOfPublication, decimal price, int quantity, Status status = Status.Active)
     {
         Title = title;
         Publisher = publisher;
         Edition = edition;
         YearOfPublication = yearOfPublication;
+        Price = price;
+        Quantity = quantity;
+        Status = status;
     }
 
-    public static Book Create(string title, string publisher, int edition, string yearOfPublication)
+    public static Book Create(string title, string publisher, int edition, string yearOfPublication, decimal price, int quantity, Status status = Status.Active)
     {
-        return new (title, publisher, edition, yearOfPublication);
+        return new (title, publisher, edition, yearOfPublication, price, quantity, status); 
     }
 
     public void ChangeTitle(string title)
@@ -55,8 +59,7 @@ public class Book : EntityBase<Book>
     {
         if (!_authors.Exists(author.Equals))
         {
-            _authors.Add(author);
-            
+            _authors.Add(author);            
         }
     }
 
@@ -73,9 +76,16 @@ public class Book : EntityBase<Book>
         if (!_subjects.Exists(subject.Equals))
         {
             _subjects.Add(subject);
-
         }
     }
+
+    public void RemoveSubject(Subject subject)
+    {
+        if (_subjects.Exists(subject.Equals))
+        {
+            _subjects.Remove(subject);
+        }
+    }    
 
     public void ChangeStatus(Status status)
     {
@@ -87,4 +97,13 @@ public class Book : EntityBase<Book>
         Status = status;
     }
  
+    public void ChangePrice(decimal price)
+    {
+        Price = price;
+    }
+
+    public void ChangeQuantity(int quantity)
+    {
+        Quantity = quantity;
+    }
 }

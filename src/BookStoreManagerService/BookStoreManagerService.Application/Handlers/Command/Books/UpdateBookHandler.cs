@@ -42,6 +42,8 @@ public class UpdateBookHandler : IRequestHandler<UpdateBookCommand, OperationRes
                 book.ChangeTitle(request.Title);
                 book.ChangeEdition(request.Edition);
                 book.ChangeYearOfPublication(request.YearOfPublication);
+                book.ChangePrice(request.Price);
+                book.ChangeQuantity(request.Quantity);
                 book.AddAuthor(author!);
                 book.AddSubject(subject);
 

@@ -15,11 +15,13 @@ public class BookMap : EntityMap<Book>
         builder.HasKey(_ => _.Id);
 
         builder.Property(_ => _.Id).HasColumnName("Codl");
-        builder.Property(_ => _.Title).HasMaxLength(40).IsUnicode(false).HasColumnName("Titulo");
-        builder.Property(_ => _.Publisher).HasMaxLength(40).IsUnicode(false).HasColumnName("Editora");
-        builder.Property(_ => _.Edition).IsUnicode(false).HasColumnName("Edicao");
-        builder.Property(_ => _.Title).HasMaxLength(40).IsUnicode(false).HasColumnName("Titulo");
-        builder.Property(_ => _.YearOfPublication).HasColumnName("AnoPublicacao");
+        builder.Property(_ => _.Title).IsRequired().HasMaxLength(40).IsUnicode(false).HasColumnName("Titulo");
+        builder.Property(_ => _.Publisher).IsRequired().HasMaxLength(40).IsUnicode(false).HasColumnName("Editora");
+        builder.Property(_ => _.Edition).IsRequired().IsUnicode(false).HasColumnName("Edicao");
+        builder.Property(_ => _.Title).IsRequired().HasMaxLength(40).IsUnicode(false).HasColumnName("Titulo");
+        builder.Property(_ => _.YearOfPublication).IsRequired().HasColumnName("AnoPublicacao");
+        builder.Property(_ => _.Price).IsRequired().HasColumnName("Preco").HasColumnType("NUMERIC(14, 2)");
+        builder.Property(_ => _.Quantity).IsRequired().HasColumnName("Quantidade");
         builder.Property(_ => _.Status).IsRequired().HasColumnName("Situacao").HasDefaultValue(Status.Active);
 
         builder.HasMany(_ => _.Authors).WithMany(_ => _.Books)

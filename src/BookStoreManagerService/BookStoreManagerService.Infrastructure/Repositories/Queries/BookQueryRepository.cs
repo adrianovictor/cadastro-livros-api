@@ -20,7 +20,9 @@ public class BookQueryRepository(string connectionString) : QueryRepository<Book
                            a.CodAu AuthorId,
                            a.Nome Author,
                            ass.CodAs SubjectId,
-                           ass.Descricao Subject
+                           ass.Descricao Subject,
+                           l.Preco Price,
+                           l.Quantidade Quantity
                     FROM [dbo].[Livro] l
                         LEFT JOIN [dbo].Livro_Autor la ON l.Codl = la.Livro_Codl
                         LEFT JOIN [dbo].[Autor] a ON la.Autor_CodAu = a.CodAu
@@ -42,7 +44,9 @@ public class BookQueryRepository(string connectionString) : QueryRepository<Book
                            a.CodAu AuthorId,
                            a.Nome Author,
                            ass.CodAs SubjectId,
-                           ass.Descricao Subject
+                           ass.Descricao Subject,
+                           l.Preco Price,
+                           l.Quantidade Quantity
                     FROM [dbo].[Livro] l
                         LEFT JOIN [dbo].Livro_Autor la ON l.Codl = la.Livro_Codl
                         LEFT JOIN [dbo].[Autor] a ON la.Autor_CodAu = a.CodAu

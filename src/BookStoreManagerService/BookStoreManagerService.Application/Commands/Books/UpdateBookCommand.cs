@@ -12,8 +12,10 @@ public class UpdateBookCommand : IRequest<OperationResult>
     public string YearOfPublication { get; }
     public string Author { get; }
     public string Subject { get; }
+    public decimal Price { get; }
+    public int Quantity { get; }    
 
-    public UpdateBookCommand(int id, string title, string publisher, int edition, string yearOfPublication, string author, string subject)
+    public UpdateBookCommand(int id, string title, string publisher, int edition, string yearOfPublication, string author, string subject, decimal price, int quantity) 
     {
         Id = id;
         Title = title;        
@@ -22,5 +24,7 @@ public class UpdateBookCommand : IRequest<OperationResult>
         YearOfPublication = yearOfPublication;
         Author = author;
         Subject = subject;
+        Price = price;
+        Quantity = quantity;        
     }
 }

@@ -31,7 +31,9 @@ public class BookUniqueQueryHandler : IRequestHandler<QueryUniqueBook, BookRespo
             Author = book.Author,
             YearOfPublication = book.YearOfPublication,
             Subject = book.Subject,
-            SubjectId = book.SubjectId
+            SubjectId = book.SubjectId,
+            Price = book.Price,
+            Quantity = book.Quantity
         };
     }
 }

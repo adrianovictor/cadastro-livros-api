@@ -10,13 +10,17 @@ public class CreateBookCommand : IRequest<OperationResult>
     public int Edition { get; }
     public string YearOfPublication { get; }
     public string Author { get; }
+    public decimal Price { get; }
+    public int Quantity { get; }
 
-    public CreateBookCommand(string title, string publisher, int edition, string yearOfPublication, string author)
+    public CreateBookCommand(string title, string publisher, int edition, string yearOfPublication, string author, decimal price, int quantity)
     {
         Title = title;        
         Publisher = publisher;
         Edition = edition;
         YearOfPublication = yearOfPublication;
         Author = author;
+        Price = price;
+        Quantity = quantity;
     }
 }

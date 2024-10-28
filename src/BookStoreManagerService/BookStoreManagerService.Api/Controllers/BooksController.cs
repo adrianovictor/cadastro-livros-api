@@ -33,7 +33,9 @@ namespace BookStoreManagerService.Api.Controllers
                     request.Editora, 
                     request.Edicao, 
                     request.AnoPublicacao, 
-                    request.Autor
+                    request.Autor,
+                    request.Price,
+                    request.Quantity
                  ))).ToResult();
         }
         #endregion
@@ -50,7 +52,9 @@ namespace BookStoreManagerService.Api.Controllers
                     request.Edition, 
                     request.YearofPublication, 
                     request.Author,
-                    request.Subject
+                    request.Subject,
+                    request.Price,
+                    request.Quantity
                  ))).ToResult();
         }        
         #endregion
