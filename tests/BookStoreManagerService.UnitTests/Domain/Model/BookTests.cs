@@ -9,7 +9,7 @@ public class BookTest
     public void Constructor_WhenTryingToCreateABook_ShouldHaveDefaultValues()
     {
         // arrage
-        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024");
+        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024", (decimal)69.90, 100);
 
         // asset
         Assert.Equal("Livro da Vida", book.Title);
@@ -23,7 +23,7 @@ public class BookTest
     {
         // arrange
         var author = Author.Create("John Wayne");
-        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024");
+        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024", (decimal)69.90, 100);
 
         // act
         book.AddAuthor(author);
@@ -37,7 +37,7 @@ public class BookTest
     {
         // arrange
         var author = Author.Create("John Wayne");
-        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024");
+        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024", (decimal)69.90, 100);
 
         book.AddAuthor(author);
 
@@ -53,7 +53,7 @@ public class BookTest
     {
         // arrange
         var subject = Subject.Create("Ficção");
-        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024");
+        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024", (decimal)69.90, 100);
 
         // act
         book.AddSubject(subject);
@@ -66,7 +66,7 @@ public class BookTest
     public void WhenTryingToChangeEditionOfABook_ShouldHaveSuccess()
     {
         // arrange
-        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024");
+        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024", (decimal)69.90, 100);
 
         // act
         book.ChangeEdition(2);

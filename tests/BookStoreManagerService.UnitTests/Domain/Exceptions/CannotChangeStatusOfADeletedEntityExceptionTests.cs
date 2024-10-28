@@ -11,7 +11,7 @@ public class CannotChangeStatusOfADeletedEntityExceptionTests
     public void WhenTryingToChangeStatusOfADeletedEntity_ShouldReturnAnException()
     {
         // arrange
-        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024");
+        var book = Book.Create("Livro da Vida", "Editora Nova", 1, "2024", (decimal)69.90, 100);
         var errorMessage = "Não é possível alterar o status de um objeto deletado.";
 
         book.ChangeStatus(Status.Deleted);

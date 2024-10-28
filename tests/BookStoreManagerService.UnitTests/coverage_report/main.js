@@ -221,11 +221,11 @@ var assemblies = [
   {
     "name": "BookStoreManagerService.Domain",
     "classes": [
-      { "name": "BookStoreManagerService.Domain.Common.EntityBase<T>", "rp": "BookStoreManagerService.Domain_EntityBase_1.html", "cl": 0, "ucl": 9, "cal": 9, "tl": 23, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "BookStoreManagerService.Domain.Dto.BookDto", "rp": "BookStoreManagerService.Domain_BookDto.html", "cl": 0, "ucl": 9, "cal": 9, "tl": 16, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "BookStoreManagerService.Domain.Common.EntityBase<T>", "rp": "BookStoreManagerService.Domain_EntityBase_1.html", "cl": 0, "ucl": 15, "cal": 15, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "BookStoreManagerService.Domain.Dto.BookDto", "rp": "BookStoreManagerService.Domain_BookDto.html", "cl": 0, "ucl": 11, "cal": 11, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "BookStoreManagerService.Domain.Exceptions.CannotChangeStatusOfADeletedEntityException", "rp": "BookStoreManagerService.Domain_CannotChangeStatusOfADeletedEntityException.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 6, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "BookStoreManagerService.Domain.Model.Author", "rp": "BookStoreManagerService.Domain_Author.html", "cl": 11, "ucl": 1, "cal": 12, "tl": 26, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "BookStoreManagerService.Domain.Model.Book", "rp": "BookStoreManagerService.Domain_Book.html", "cl": 62, "ucl": 8, "cal": 70, "tl": 90, "cb": 14, "tb": 14, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "BookStoreManagerService.Domain.Model.Book", "rp": "BookStoreManagerService.Domain_Book.html", "cl": 79, "ucl": 15, "cal": 94, "tl": 109, "cb": 22, "tb": 24, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "BookStoreManagerService.Domain.Model.Subject", "rp": "BookStoreManagerService.Domain_Subject.html", "cl": 11, "ucl": 1, "cal": 12, "tl": 26, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
