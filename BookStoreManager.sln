@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{48F972CC-9176-4320-80E9-564A84C6875C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStoreManagerService", "BookStoreManagerService", "{90BC6476-1E6D-4053-A308-D3F906E32145}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreManagerService.Api", "src\BookStoreManagerService\BookStoreManagerService.Api\BookStoreManagerService.Api.csproj", "{51F29C9C-9960-4274-8B96-120AA9BA2616}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreManagerService.Application", "src\BookStoreManagerService\BookStoreManagerService.Application\BookStoreManagerService.Application.csproj", "{3C94DDCF-B580-4360-A2EB-0A2784983C63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreManagerService.Common", "src\BookStoreManagerService\BookStoreManagerService.Common\BookStoreManagerService.Common.csproj", "{F5F5331D-2904-4249-BDB7-5B5D74CA9B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreManagerService.Domain", "src\BookStoreManagerService\BookStoreManagerService.Domain\BookStoreManagerService.Domain.csproj", "{ABBB76A2-AC6A-4448-B772-73AD01EE008E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStoreManagerService.Infrastructure", "src\BookStoreManagerService\BookStoreManagerService.Infrastructure\BookStoreManagerService.Infrastructure.csproj", "{98B46BD6-D832-4FD3-93A4-8384DADF5752}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51F29C9C-9960-4274-8B96-120AA9BA2616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F29C9C-9960-4274-8B96-120AA9BA2616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F29C9C-9960-4274-8B96-120AA9BA2616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F29C9C-9960-4274-8B96-120AA9BA2616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C94DDCF-B580-4360-A2EB-0A2784983C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C94DDCF-B580-4360-A2EB-0A2784983C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C94DDCF-B580-4360-A2EB-0A2784983C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C94DDCF-B580-4360-A2EB-0A2784983C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5F5331D-2904-4249-BDB7-5B5D74CA9B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5F5331D-2904-4249-BDB7-5B5D74CA9B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5F5331D-2904-4249-BDB7-5B5D74CA9B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5F5331D-2904-4249-BDB7-5B5D74CA9B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABBB76A2-AC6A-4448-B772-73AD01EE008E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBB76A2-AC6A-4448-B772-73AD01EE008E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBB76A2-AC6A-4448-B772-73AD01EE008E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBB76A2-AC6A-4448-B772-73AD01EE008E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B46BD6-D832-4FD3-93A4-8384DADF5752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B46BD6-D832-4FD3-93A4-8384DADF5752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B46BD6-D832-4FD3-93A4-8384DADF5752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B46BD6-D832-4FD3-93A4-8384DADF5752}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90BC6476-1E6D-4053-A308-D3F906E32145} = {48F972CC-9176-4320-80E9-564A84C6875C}
+		{51F29C9C-9960-4274-8B96-120AA9BA2616} = {90BC6476-1E6D-4053-A308-D3F906E32145}
+		{3C94DDCF-B580-4360-A2EB-0A2784983C63} = {90BC6476-1E6D-4053-A308-D3F906E32145}
+		{F5F5331D-2904-4249-BDB7-5B5D74CA9B5F} = {90BC6476-1E6D-4053-A308-D3F906E32145}
+		{ABBB76A2-AC6A-4448-B772-73AD01EE008E} = {90BC6476-1E6D-4053-A308-D3F906E32145}
+		{98B46BD6-D832-4FD3-93A4-8384DADF5752} = {90BC6476-1E6D-4053-A308-D3F906E32145}
+	EndGlobalSection
+EndGlobal
