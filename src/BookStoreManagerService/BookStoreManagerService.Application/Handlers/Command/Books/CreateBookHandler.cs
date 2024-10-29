@@ -10,11 +10,13 @@ namespace BookStoreManagerService.Application.Handlers.Command.Books;
 public class CreateBookHandler : IRequestHandler<CreateBookCommand, OperationResult>
 {
     private readonly IAuthorRepository _authorRepository;
+    private readonly ISubjectRepository _subjectRepository;
     private readonly IBookRepository _bookRepository;
 
-    public CreateBookHandler(IAuthorRepository authorRepository, IBookRepository bookRepository)
+    public CreateBookHandler(IAuthorRepository authorRepository, ISubjectRepository subjectRepository, IBookRepository bookRepository)
     {
         _authorRepository = authorRepository;
+        _subjectRepository = subjectRepository;
         _bookRepository = bookRepository;
     }
 
@@ -26,10 +28,10 @@ public class CreateBookHandler : IRequestHandler<CreateBookCommand, OperationRes
             if (book == null)
             {
                 var author = _authorRepository.GetAll().FirstOrDefault(_ => _.Name == request.Author);
-                if (author == null)
-                {
-                    author = Author.Create(request.Author);
-                }
+                author ??= Author.Create(request.Author);
+
+                var subject = _subjectRepository.GetAll().FirstOrDefault(_ => _.Description == request.Subject);
+                subject ??= Subject.Create(request.Subject);
 
                 book = Book.Create(
                     request.Title, 
@@ -39,8 +41,9 @@ public class CreateBookHandler : IRequestHandler<CreateBookCommand, OperationRes
                     request.Price, 
                     request.Quantity);
                 book.AddAuthor(author!);
+                book.AddSubject(subject);
 
-                book = await _bookRepository.AddAsync(book);
+                await _bookRepository.SaveAsync(book);
 
                 return new OperationResult
                 {

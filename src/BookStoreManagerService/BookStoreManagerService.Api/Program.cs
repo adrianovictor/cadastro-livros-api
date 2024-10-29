@@ -13,7 +13,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(typeof(CreateAuthorHandler).GetTypeInfo().Assembly);
-builder.Services.AddScoped(provider => new BookStoreDbContext(builder.Configuration.GetConnectionString("DefaultConnection")!));
+//builder.Services.AddScoped(provider => new BookStoreDbContext(builder.Configuration.GetConnectionString("DefaultConnection")!));
+builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")!));
 
 builder.Services.AddScoped(typeof(IQueryRepository<>), typeof(QueryRepository<>));
 builder.Services.AddTransient<IBookQueryRepository>(provider => new BookQueryRepository(builder.Configuration.GetConnectionString("DefaultConnection")!));
