@@ -40,7 +40,7 @@ public class CreateBookHandler : IRequestHandler<CreateBookCommand, OperationRes
                     request.YearOfPublication, 
                     request.Price, 
                     request.Quantity);
-                book.AddAuthor(author!);
+                book.AddAuthor(author);
                 book.AddSubject(subject);
 
                 await _bookRepository.SaveAsync(book);
